@@ -2,17 +2,18 @@
 
 #include "ECS/Components.h"
 
+#include <cstdint>
+
 class Renderer
 {
 public:
-	Renderer();
-	Renderer(const Renderer&) = delete;
-	Renderer(Renderer&&) noexcept = delete;
+	Renderer(uint32_t framebufferWidth, uint32_t framebufferHeight)
+		: m_FramebufferWidth(framebufferWidth),
+		  m_FramebufferHeight(framebufferHeight) {}
 
 	void DrawSprite(const Sprite& sprite, 
 		const Transform2D& transform);
-public:
-	static Renderer& GetInstance() noexcept;
 private:
-	Renderer* s_Instance;
+	uint32_t m_FramebufferWidth;
+	uint32_t m_FramebufferHeight;
 };

@@ -2,7 +2,9 @@
 
 void DinoApplication::Init() noexcept
 {
-	AApplication::Init();
+	AGame::Init();
+}
 
-	// Init code goes here
+void DinoApplication::Update(float deltaTime)
+{
 }

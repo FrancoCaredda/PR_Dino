@@ -1,6 +1,7 @@
 #pragma once
 
 #include "raylib.h"
+#include "Core/SpriteSheet.h"
 
 struct Component
 {
@@ -15,6 +16,8 @@ struct Transform2D : public Component
 
 struct Sprite : public Component
 {
-	int X{};
-	int Y{};
+	int Row{};
+	int Column{};
+
+	SpriteSheet* SpriteSheetRef;
 };

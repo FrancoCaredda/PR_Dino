@@ -1,12 +1,15 @@
 #pragma once
 
-#include "Core/AApplication.h"
+#include "Core/AGame.h"
 
-class DinoApplication : public AApplication
+class DinoApplication : public AGame
 {
 public:
 	DinoApplication()
-		: AApplication() {}
+		: AGame() {}
 
 	virtual void Init() noexcept override;
+
+protected:
+	virtual void Update(float deltaTime) override;
 };
