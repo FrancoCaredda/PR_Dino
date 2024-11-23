@@ -12,4 +12,7 @@ public:
 
 	virtual void Start() noexcept override;
 	virtual void Update(float deltaTime) noexcept override;
+private:
+	int m_FramesCount = 0;
+	int m_AnimationSpeed = 15;
 };

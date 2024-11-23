@@ -20,6 +20,8 @@ public:
 	inline Scene& GetCurrentScene() const noexcept { return *m_CurrentScene; }
 	inline Renderer& GetRenderer() const noexcept { return m_Renderer; }
 	inline SpriteSheetLibrary& GetSpriteSheetLibrary() const noexcept { return m_SpriteSheetLibrary; }
+private:
+	void ProcessScene(float deltaTime) noexcept;
 protected:
 	virtual void Update(float deltaTime) = 0;
 private:

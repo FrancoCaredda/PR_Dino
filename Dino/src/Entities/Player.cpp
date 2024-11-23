@@ -3,7 +3,7 @@
 void Player::Start() noexcept
 {
 	m_Sprite->Row = 0;
-	m_Sprite->Column = 1;
+	m_Sprite->Column = 0;
 
 	m_Transform->Position.x = 100;
 	m_Transform->Position.y = 100;
@@ -13,4 +13,8 @@ void Player::Start() noexcept
 
 void Player::Update(float deltaTime) noexcept
 {
+	m_FramesCount++;
+	m_FramesCount = m_FramesCount % 60;
+
+	m_Sprite->Column = (int)(m_FramesCount * deltaTime * m_AnimationSpeed) % 7;
 }

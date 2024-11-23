@@ -18,6 +18,7 @@ AGame::AGame()
 void AGame::Init() noexcept
 {
 	InitWindow(1920, 1080, "Chrome Dino - Clone");
+	SetTargetFPS(60);
 }
 
 void AGame::Run() noexcept
@@ -41,21 +42,7 @@ void AGame::Run() noexcept
 		ClearBackground(RAYWHITE);
 
 		Update(deltaTimeSeconds);
-
-		for (int i = 0; i < m_CurrentScene->GetEntityCount(); i++)
-			entities[i]->Update(deltaTimeSeconds);
-
-		if (m_CurrentScene)
-		{
-			auto& sprites = m_CurrentScene->GetSprites();
-			auto& transforms = m_CurrentScene->GetTransforms();
-
-			for (int i = 0; i < m_CurrentScene->GetEntityCount(); i++)
-			{
-				if (sprites[i].EntityId != -1)
-					m_Renderer.DrawSprite(sprites[i], transforms[i]);
-			}
-		}
+		ProcessScene(deltaTimeSeconds);
 
 		EndDrawing();
 	}
@@ -69,5 +56,25 @@ void AGame::Close() noexcept
 void AGame::SetCurrentScene(Scene* scene)
 {
 	m_CurrentScene = scene;
+}
+
+void AGame::ProcessScene(float deltaTime) noexcept
+{
+	auto& entities = m_CurrentScene->GetEntities();
+
+	for (int i = 0; i < m_CurrentScene->GetEntityCount(); i++)
+		entities[i]->Update(deltaTime);
+
+	if (m_CurrentScene)
+	{
+		auto& sprites = m_CurrentScene->GetSprites();
+		auto& transforms = m_CurrentScene->GetTransforms();
+
+		for (int i = 0; i < m_CurrentScene->GetEntityCount(); i++)
+		{
+			if (sprites[i].EntityId != -1)
+				m_Renderer.DrawSprite(sprites[i], transforms[i]);
+		}
+	}
 }
 
