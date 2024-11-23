@@ -2,6 +2,8 @@
 
 #include "ECS/Entity.h"
 
+#include <stdexcept>
+
 #define MAX_ENTITY_COUNT 100
 class Scene
 {
@@ -13,16 +15,16 @@ public:
 	~Scene() = default;
 
 	template<typename TEntity>
-	TEntity* CreateEntity() noexcept
+	TEntity* CreateEntity()
 	{
 		static_assert(constexpr std::is_base_of<AEntity, TEntity>(),
 			"TEntity has to be of type AEntity");
 
 		if (m_CurrentEntity >= MAX_ENTITY_COUNT)
-			throw std:::runtime_error::exception("Entity overflow exception!");
+			throw std::runtime_error::exception("Entity overflow exception!");
 
 		Sprite* sprite = &m_Sprites[m_CurrentEntity];
-		Transform2D* transform = m_Transforms[m_CurrentEntity];
+		Transform2D* transform = &m_Transforms[m_CurrentEntity];
 
 		sprite->EntityId = m_CurrentEntity;
 		transform->EntityId = m_CurrentEntity;
@@ -35,6 +37,8 @@ public:
 
 	inline const std::array<Transform2D, MAX_ENTITY_COUNT>& GetTransforms() const noexcept { return m_Transforms; }
 	inline const std::array<Sprite, MAX_ENTITY_COUNT>& GetSprites() const noexcept { return m_Sprites; }
+	inline const std::array<AEntity*, MAX_ENTITY_COUNT>& GetEntities() const noexcept { return m_Entities; }
+	inline int GetEntityCount() const noexcept { return m_CurrentEntity; }
 private:
 	std::array<Transform2D, MAX_ENTITY_COUNT> m_Transforms;
 	std::array<Sprite, MAX_ENTITY_COUNT> m_Sprites;

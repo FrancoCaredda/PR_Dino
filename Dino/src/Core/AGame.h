@@ -2,6 +2,7 @@
 
 #include "Scene.h"
 #include "Renderer.h"
+#include "SpriteSheet.h"
 
 class AGame
 {
@@ -18,11 +19,13 @@ public:
 
 	inline Scene& GetCurrentScene() const noexcept { return *m_CurrentScene; }
 	inline Renderer& GetRenderer() const noexcept { return m_Renderer; }
+	inline SpriteSheetLibrary& GetSpriteSheetLibrary() const noexcept { return m_SpriteSheetLibrary; }
 protected:
 	virtual void Update(float deltaTime) = 0;
 private:
 	mutable Scene* m_CurrentScene = nullptr;
 	mutable Renderer m_Renderer{1920, 1080};
+	mutable SpriteSheetLibrary m_SpriteSheetLibrary;
 private:
 	static AGame* s_Instance;
 };

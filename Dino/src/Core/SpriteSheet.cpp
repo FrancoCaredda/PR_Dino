@@ -25,7 +25,7 @@ SpriteSheet& SpriteSheet::operator=(SpriteSheet&& spriteSheet) noexcept
 	return *this;
 }
 
-const SpriteSheet& SpriteSheetLibrary::LoadSpriteSheet(const std::filesystem::path& path,
+SpriteSheet& SpriteSheetLibrary::LoadSpriteSheet(const std::filesystem::path& path,
 	Vector2 cellSize)
 {
 	if (!std::filesystem::exists(path))

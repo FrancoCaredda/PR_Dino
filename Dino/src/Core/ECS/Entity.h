@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Components.h"
+#include "Core/SpriteSheet.h"
 
 #include <array>
 #include <vector>
@@ -17,6 +18,8 @@ public:
 
 	virtual void Start() noexcept = 0;
 	virtual void Update(float deltaTime) noexcept = 0;
+
+	void SetSpriteSheet(SpriteSheet& spriteSheet) noexcept;
 
 	inline int GetEntityId() const noexcept { return m_EntityId; }
 protected:

@@ -38,7 +38,7 @@ public:
 	SpriteSheetLibrary(const SpriteSheet&) = delete;
 	SpriteSheetLibrary(SpriteSheet&&) noexcept = delete;
 
-	const SpriteSheet& LoadSpriteSheet(const std::filesystem::path& path,
+	SpriteSheet& LoadSpriteSheet(const std::filesystem::path& path,
 		Vector2 cellSize);
 
 	inline const SpriteSheet& GetSpriteSheet(const std::string& name) const noexcept { return m_SpriteSheets.at(name); }
