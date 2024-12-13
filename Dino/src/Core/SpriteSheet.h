@@ -41,7 +41,7 @@ public:
 	SpriteSheet& LoadSpriteSheet(const std::filesystem::path& path,
 		Vector2 cellSize);
 
-	inline const SpriteSheet& GetSpriteSheet(const std::string& name) const noexcept { return m_SpriteSheets.at(name); }
+	inline SpriteSheet& GetSpriteSheet(const std::string& name) const noexcept { return const_cast<SpriteSheet&>(m_SpriteSheets.at(name)); }
 private:
 	std::unordered_map<std::string, SpriteSheet> m_SpriteSheets;
 };

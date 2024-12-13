@@ -19,5 +19,10 @@ struct Sprite : public Component
 	int Row{};
 	int Column{};
 
+	bool Animate = false;
+
+	int FramesCount{};
+	int AnimationSpeed{};
+
 	SpriteSheet* SpriteSheetRef;
 };

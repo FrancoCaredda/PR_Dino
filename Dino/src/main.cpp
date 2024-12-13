@@ -1,8 +1,8 @@
-#include "DinoGame.h"
+#include "Application.h"
 
 int main(void)
 {
-    DinoGame app;
+    Application app;
 
     app.Init();
     app.Run();
