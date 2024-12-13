@@ -43,6 +43,7 @@ void Application::Run()
 			{
 				m_AnimationSystem.UpdateSprite(*sprite, deltaTimeSeconds);
 				m_Renderer.DrawSprite(*sprite, *transform);
+				m_Renderer.DebugRect(*entity.BoundingBox);
 			}
 		}
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAX_ENTITY_COUNT 100
+#define MAX_ENTITY_COUNT 25
 
 #include "Core/SpriteSheet.h"
 
@@ -23,6 +23,7 @@ private:
 	std::array<Entity, MAX_ENTITY_COUNT> m_Entities;
 	std::array<Transform2D, MAX_ENTITY_COUNT> m_Transforms;
 	std::array<Sprite, MAX_ENTITY_COUNT> m_Sprites;
+	std::array<Rectangle, MAX_ENTITY_COUNT> m_BoundingBoxes;
 
 	int m_NextEntityId = 0;
 

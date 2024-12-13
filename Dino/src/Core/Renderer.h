@@ -13,6 +13,8 @@ public:
 
 	void DrawSprite(const Sprite& sprite, 
 		const Transform2D& transform);
+
+	void DebugRect(const Rectangle& rect);
 private:
 	uint32_t m_FramebufferWidth;
 	uint32_t m_FramebufferHeight;

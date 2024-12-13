@@ -8,4 +8,5 @@ struct Entity
 
 	Transform2D* TransformComponent = nullptr;
 	Sprite* SpriteComponent = nullptr;
+	Rectangle* BoundingBox = nullptr;
 };

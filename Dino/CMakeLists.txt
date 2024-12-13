@@ -17,7 +17,7 @@ add_executable(${PROJECT_NAME} "src/main.cpp"
                                "src/Core/ECS/AnimationSystem.h" 
                                "src/Core/ECS/AnimationSystem.cpp" 
                                "src/GameLevel.h" 
-                               "src/GameLevel.cpp")
+                               "src/GameLevel.cpp" "src/Core/ECS/PhysicsSystem.h" "src/Core/ECS/PhysicsSystem.cpp")
 add_compile_definitions(ASSETS_DIRECTORY="${CMAKE_SOURCE_DIR}/assets")
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/vendor/raylib/include"
                                                   "${CMAKE_CURRENT_SOURCE_DIR}/src")
